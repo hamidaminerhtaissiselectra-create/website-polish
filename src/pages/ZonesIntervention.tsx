@@ -201,30 +201,25 @@ const ZonesIntervention = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* CTA Flottant selon le document */}
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                onClick={() => {
-                  const element = document.getElementById("regions-grid");
-                  if (element) {
-                    const offset = 80;
-                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-                  }
-                }}
-              >
-                Vérifier la disponibilité dans ma zone
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
               <Button 
                 size="lg" 
-                className="text-lg px-8 bg-primary/20 backdrop-blur-sm border-2 border-primary/50 hover:bg-primary/30 text-primary transition-all"
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
                 asChild
               >
                 <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
                   {phoneNumber}
+                </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="text-lg px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary transition-all"
+                asChild
+              >
+                <a href="/contact">
+                  Demander un devis gratuit
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
               </Button>
             </div>
@@ -367,19 +362,13 @@ const ZonesIntervention = () => {
               
               // Couleurs par région
               const regionColors = [
-                { bg: 'from-blue-500/20 to-cyan-500/20', icon: 'text-blue-500', border: 'hover:border-blue-500/50' },
-                { bg: 'from-green-500/20 to-emerald-500/20', icon: 'text-green-500', border: 'hover:border-green-500/50' },
-                { bg: 'from-violet-500/20 to-purple-500/20', icon: 'text-violet-500', border: 'hover:border-violet-500/50' },
-                { bg: 'from-orange-500/20 to-amber-500/20', icon: 'text-orange-500', border: 'hover:border-orange-500/50' },
-                { bg: 'from-rose-500/20 to-pink-500/20', icon: 'text-rose-500', border: 'hover:border-rose-500/50' },
-                { bg: 'from-teal-500/20 to-cyan-500/20', icon: 'text-teal-500', border: 'hover:border-teal-500/50' },
-                { bg: 'from-indigo-500/20 to-blue-500/20', icon: 'text-indigo-500', border: 'hover:border-indigo-500/50' },
-                { bg: 'from-yellow-500/20 to-amber-500/20', icon: 'text-yellow-600', border: 'hover:border-yellow-500/50' },
-                { bg: 'from-sky-500/20 to-blue-500/20', icon: 'text-sky-500', border: 'hover:border-sky-500/50' },
-                { bg: 'from-lime-500/20 to-green-500/20', icon: 'text-lime-600', border: 'hover:border-lime-500/50' },
-                { bg: 'from-fuchsia-500/20 to-pink-500/20', icon: 'text-fuchsia-500', border: 'hover:border-fuchsia-500/50' },
-                { bg: 'from-red-500/20 to-orange-500/20', icon: 'text-red-500', border: 'hover:border-red-500/50' },
-                { bg: 'from-emerald-500/20 to-teal-500/20', icon: 'text-emerald-500', border: 'hover:border-emerald-500/50' }
+                { bg: 'from-blue-500 to-cyan-500', icon: 'text-white', border: 'hover:border-blue-500/50' },
+                { bg: 'from-green-500 to-emerald-500', icon: 'text-white', border: 'hover:border-green-500/50' },
+                { bg: 'from-violet-500 to-purple-500', icon: 'text-white', border: 'hover:border-violet-500/50' },
+                { bg: 'from-orange-500 to-amber-500', icon: 'text-white', border: 'hover:border-orange-500/50' },
+                { bg: 'from-red-500 to-rose-500', icon: 'text-white', border: 'hover:border-red-500/50' },
+                { bg: 'from-indigo-500 to-blue-600', icon: 'text-white', border: 'hover:border-indigo-500/50' },
+                { bg: 'from-teal-500 to-emerald-600', icon: 'text-white', border: 'hover:border-teal-500/50' }
               ];
               
               const colorSet = regionColors[index % regionColors.length];
@@ -397,7 +386,7 @@ const ZonesIntervention = () => {
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                        <div className={`absolute top-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-br ${colorSet.bg} backdrop-blur-sm flex items-center justify-center shadow-lg`}>
+                        <div className={`absolute top-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-br ${colorSet.bg} flex items-center justify-center shadow-xl z-20 border border-white/20`}>
                           <MapPin className={`w-5 h-5 ${colorSet.icon}`} />
                         </div>
                         <ArrowRight className="absolute top-3 right-3 w-5 h-5 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all" />
