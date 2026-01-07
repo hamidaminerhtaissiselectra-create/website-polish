@@ -217,7 +217,7 @@ const ZonesIntervention = () => {
                 className="text-lg px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary transition-all"
                 asChild
               >
-                <a href="/contact">
+                <a href="/#quote">
                   Demander un devis gratuit
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
@@ -271,9 +271,12 @@ const ZonesIntervention = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Nos Services Principaux : Installation, Dépannage et Location Partout en France
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
                 Trois piliers d'expertise pour une sécurité complète sur tout le territoire.
               </p>
+              <Button asChild className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                <a href="/#quote">Obtenez votre devis personnalisé - Demande de Devis</a>
+              </Button>
             </div>
           </AnimatedSection>
 
@@ -356,8 +359,7 @@ const ZonesIntervention = () => {
                 "bretagne": "/assets/regions/bretagne.jpg",
                 "normandie": "/assets/regions/normandie.jpg",
                 "bourgogne-franche-comte": "/assets/regions/bourgogne-franche-comte.jpg",
-                "centre-val-de-loire": "/assets/regions/centre-val-de-loire.jpg",
-                "corse": "/assets/regions/corse.jpg"
+                "centre-val-de-loire": "/assets/regions/centre-val-de-loire.jpg"
               };
               
               // Couleurs par région
@@ -609,10 +611,12 @@ const ZonesIntervention = () => {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                onClick={() => scrollToSection("quote", { mode: "quote" })}
+                asChild
               >
-                Demander un Devis Personnalisé
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <a href="/#quote">
+                  Obtenez votre devis personnalisé - Demande de Devis
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
               </Button>
               <Button 
                 size="lg" 
