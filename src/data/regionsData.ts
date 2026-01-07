@@ -243,6 +243,19 @@ export const regionsData: RegionData[] = [
     economicHighlights: ["Logistique nationale", "Cosmétique Valley", "Tourisme châteaux", "Agriculture céréalière"],
     clientTypes: ["Châteaux historiques", "Entrepôts logistiques", "Industries cosmétiques", "Exploitations agricoles", "Commerces touristiques"]
   },
+  {
+    name: "Corse",
+    slug: "corse",
+    description: "Île de beauté au patrimoine unique, la Corse nécessite des solutions de sécurité adaptées à son environnement insulaire. HD Connect intervient sur l'ensemble du territoire corse.",
+    seoDescription: "Sécurité électronique Corse : installation caméras Ajaccio, Bastia. Alarmes villas, hôtels. Expert intervention île de beauté.",
+    departments: [
+      { name: "Corse-du-Sud", code: "2A" },
+      { name: "Haute-Corse", code: "2B" }
+    ],
+    mainCities: ["Ajaccio", "Bastia", "Porto-Vecchio", "Corte", "Calvi", "Bonifacio", "Propriano", "Île-Rousse"],
+    economicHighlights: ["Tourisme balnéaire et montagnard", "Agroalimentaire local", "Immobilier de prestige", "Nautisme"],
+    clientTypes: ["Hôtels de luxe", "Villas de vacances", "Commerces saisonniers", "Ports de plaisance", "Résidences secondaires"]
+  }
 ];
 
 export const getRegionBySlug = (slug: string): RegionData | undefined => {

@@ -185,21 +185,41 @@ const ZonesIntervention = () => {
           <Breadcrumbs items={breadcrumbItems} />
           
           <div className="max-w-4xl mx-auto text-center mt-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6 animate-fade-in">
-              <Globe className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-6">
+              <Shield className="w-4 h-4" />
               <span>Couverture Nationale</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Zones d’intervention – <span className="text-primary">Installation de systèmes de sécurité</span> partout en France
+            
+            {/* H1 selon le document */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+              Couverture Nationale HD Connect : <span className="text-primary">Installation, Dépannage et Location</span> de Systèmes de Sécurité
             </h1>
+            
+            {/* Texte SAB selon le document */}
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Nous intervenons dans toutes les régions pour l’installation d’alarmes, vidéosurveillance et contrôle d’accès, avec devis gratuit sous 24h.
+              Basés en Île-de-France, nous protégeons la France entière grâce à notre réseau d'intervenants locaux certifiés. Notre expertise se concentre sur l'Installation, le Dépannage et la Location de <strong>Vidéosurveillance</strong>, <strong>Alarmes</strong> et <strong>Contrôle d'Accès</strong> pour garantir une sécurité optimale, où que vous soyez.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* CTA Flottant selon le document */}
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
+                onClick={() => {
+                  const element = document.getElementById("regions-grid");
+                  if (element) {
+                    const offset = 80;
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                  }
+                }}
+              >
+                Vérifier la disponibilité dans ma zone
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
+                className="text-lg px-8 bg-primary/20 backdrop-blur-sm border-2 border-primary/50 hover:bg-primary/30 text-primary transition-all"
                 asChild
               >
                 <a href={callUrl} target="_blank" rel="noopener noreferrer">
@@ -207,31 +227,7 @@ const ZonesIntervention = () => {
                   {phoneNumber}
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="text-lg px-8 border-2 border-primary/50 hover:bg-primary/10 text-primary transition-all"
-                asChild
-              >
-                <a href="/#quote">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Texte Contextuel SEO */}
-      <section className="py-12 bg-background relative overflow-hidden border-y border-border/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatedSection animation="fade-up">
-              <p className="text-xl md:text-2xl text-foreground leading-relaxed font-medium">
-                HD Connect intervient dans toute la France pour l’installation et le dépannage de systèmes de sécurité. Que vous soyez à Paris, Lyon, Marseille ou dans une commune rurale, nos techniciens certifiés se déplacent rapidement pour sécuriser votre habitation ou vos locaux professionnels.
-              </p>
-            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -265,28 +261,7 @@ const ZonesIntervention = () => {
         </div>
       </section>
 
-      {/* Bloc Confiance (NOUVELLE SECTION) */}
-      <section className="py-12 bg-primary/5 border-y border-primary/10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { icon: Users, text: "Plus de 500 installations réalisées" },
-              { icon: Zap, text: "Intervention sous 24h" },
-              { icon: Shield, text: "Matériel certifié norme européenne" },
-              { icon: Award, text: "Garantie 5 ans" }
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <p className="text-sm font-bold text-foreground">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bloc 4: Les Services Principaux */}
+      {/* Bloc 2: Les Services Principaux */}
       <section className="py-16 bg-background relative overflow-hidden">
         <div className="absolute top-10 left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-10 right-10 w-56 h-56 bg-violet-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
@@ -301,12 +276,9 @@ const ZonesIntervention = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Nos Services Principaux : Installation, Dépannage et Location Partout en France
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+              <p className="text-muted-foreground max-w-2xl mx-auto">
                 Trois piliers d'expertise pour une sécurité complète sur tout le territoire.
               </p>
-              <Button asChild className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                <a href="/#quote">Obtenez votre devis personnalisé - Demande de Devis</a>
-              </Button>
             </div>
           </AnimatedSection>
 
@@ -378,29 +350,36 @@ const ZonesIntervention = () => {
             {regionsData.map((region, index) => {
               // Images emblématiques réelles des régions françaises
               const regionImages: Record<string, string> = {
-                "ile-de-france": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800",
-                "auvergne-rhone-alpes": "https://images.unsplash.com/photo-1520930667646-40d482c50180?auto=format&fit=crop&q=80&w=800",
-                "provence-alpes-cote-d-azur": "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&q=80&w=800",
-                "nouvelle-aquitaine": "https://images.unsplash.com/photo-1569531955323-33c6b2dca44b?auto=format&fit=crop&q=80&w=800",
-                "occitanie": "https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?auto=format&fit=crop&q=80&w=800",
-                "hauts-de-france": "https://images.unsplash.com/photo-1584270610415-05895325fbd5?auto=format&fit=crop&q=80&w=800",
-                "grand-est": "https://images.unsplash.com/photo-1508010764989-4aaac373839c?auto=format&fit=crop&q=80&w=800",
-                "pays-de-la-loire": "https://images.unsplash.com/photo-156469420277d-ac134a5996c2?auto=format&fit=crop&q=80&w=800",
-                "bretagne": "https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&q=80&w=800",
-                "normandie": "https://images.unsplash.com/photo-1533088235357-be2cce232652?auto=format&fit=crop&q=80&w=800",
-                "bourgogne-franche-comte": "https://images.unsplash.com/photo-1555661530-68c8e98db4e6?auto=format&fit=crop&q=80&w=800",
-                "centre-val-de-loire": "https://images.unsplash.com/photo-1549918830-11ec3d403bad?auto=format&fit=crop&q=80&w=800"
+                "ile-de-france": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=200&fit=crop", // Tour Eiffel Paris
+                "auvergne-rhone-alpes": "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=400&h=200&fit=crop", // Mont Blanc Alpes
+                "provence-alpes-cote-d-azur": "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=400&h=200&fit=crop", // Lavande Provence
+                "nouvelle-aquitaine": "https://images.unsplash.com/photo-1565793298220-78cbb9726cba?w=400&h=200&fit=crop", // Dune du Pilat
+                "occitanie": "https://images.unsplash.com/photo-1551279076-6887f0e0ed84?w=400&h=200&fit=crop", // Cité de Carcassonne
+                "hauts-de-france": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=200&fit=crop", // Beffrois Lille
+                "grand-est": "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=200&fit=crop", // Cathédrale Strasbourg
+                "pays-de-la-loire": "https://images.unsplash.com/photo-1570102596-0e2c72ee0dbb?w=400&h=200&fit=crop", // Château de Nantes
+                "bretagne": "https://images.unsplash.com/photo-1599423300746-b62533397364?w=400&h=200&fit=crop", // Côte de granit rose
+                "normandie": "https://images.unsplash.com/photo-1597918374554-e9b58de73380?w=400&h=200&fit=crop", // Mont Saint-Michel
+                "bourgogne-franche-comte": "https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=400&h=200&fit=crop", // Vignobles Bourgogne
+                "centre-val-de-loire": "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=400&h=200&fit=crop", // Château de Chambord
+                "corse": "https://images.unsplash.com/photo-1568786866903-6e7d622c5cc5?w=400&h=200&fit=crop" // Calanques de Piana Corse
               };
               
               // Couleurs par région
               const regionColors = [
-                { bg: 'from-blue-500 to-cyan-500', icon: 'text-white', border: 'hover:border-blue-500/50' },
-                { bg: 'from-green-500 to-emerald-500', icon: 'text-white', border: 'hover:border-green-500/50' },
-                { bg: 'from-violet-500 to-purple-500', icon: 'text-white', border: 'hover:border-violet-500/50' },
-                { bg: 'from-orange-500 to-amber-500', icon: 'text-white', border: 'hover:border-orange-500/50' },
-                { bg: 'from-red-500 to-rose-500', icon: 'text-white', border: 'hover:border-red-500/50' },
-                { bg: 'from-indigo-500 to-blue-600', icon: 'text-white', border: 'hover:border-indigo-500/50' },
-                { bg: 'from-teal-500 to-emerald-600', icon: 'text-white', border: 'hover:border-teal-500/50' }
+                { bg: 'from-blue-500/20 to-cyan-500/20', icon: 'text-blue-500', border: 'hover:border-blue-500/50' },
+                { bg: 'from-green-500/20 to-emerald-500/20', icon: 'text-green-500', border: 'hover:border-green-500/50' },
+                { bg: 'from-violet-500/20 to-purple-500/20', icon: 'text-violet-500', border: 'hover:border-violet-500/50' },
+                { bg: 'from-orange-500/20 to-amber-500/20', icon: 'text-orange-500', border: 'hover:border-orange-500/50' },
+                { bg: 'from-rose-500/20 to-pink-500/20', icon: 'text-rose-500', border: 'hover:border-rose-500/50' },
+                { bg: 'from-teal-500/20 to-cyan-500/20', icon: 'text-teal-500', border: 'hover:border-teal-500/50' },
+                { bg: 'from-indigo-500/20 to-blue-500/20', icon: 'text-indigo-500', border: 'hover:border-indigo-500/50' },
+                { bg: 'from-yellow-500/20 to-amber-500/20', icon: 'text-yellow-600', border: 'hover:border-yellow-500/50' },
+                { bg: 'from-sky-500/20 to-blue-500/20', icon: 'text-sky-500', border: 'hover:border-sky-500/50' },
+                { bg: 'from-lime-500/20 to-green-500/20', icon: 'text-lime-600', border: 'hover:border-lime-500/50' },
+                { bg: 'from-fuchsia-500/20 to-pink-500/20', icon: 'text-fuchsia-500', border: 'hover:border-fuchsia-500/50' },
+                { bg: 'from-red-500/20 to-orange-500/20', icon: 'text-red-500', border: 'hover:border-red-500/50' },
+                { bg: 'from-emerald-500/20 to-teal-500/20', icon: 'text-emerald-500', border: 'hover:border-emerald-500/50' }
               ];
               
               const colorSet = regionColors[index % regionColors.length];
@@ -418,7 +397,7 @@ const ZonesIntervention = () => {
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                        <div className={`absolute top-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-br ${colorSet.bg} flex items-center justify-center shadow-xl z-20 border border-white/20`}>
+                        <div className={`absolute top-3 left-3 w-10 h-10 rounded-xl bg-gradient-to-br ${colorSet.bg} backdrop-blur-sm flex items-center justify-center shadow-lg`}>
                           <MapPin className={`w-5 h-5 ${colorSet.icon}`} />
                         </div>
                         <ArrowRight className="absolute top-3 right-3 w-5 h-5 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all" />
@@ -429,33 +408,19 @@ const ZonesIntervention = () => {
                           {region.name}
                         </h3>
                         
-                        <div className="mb-3">
-                          <p className="text-xs font-medium text-primary mb-1">Intervention à :</p>
-                          <div className="flex flex-wrap gap-1">
-                            {region.mainCities.slice(0, 4).map((city) => (
-                              <span 
-                                key={city}
-                                className="text-[10px] px-2 py-0.5 bg-secondary rounded-full text-muted-foreground"
-                              >
-                                {city}
-                              </span>
-                            ))}
-                          </div>
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {region.mainCities.slice(0, 3).map((city) => (
+                            <span 
+                              key={city}
+                              className="text-xs px-2 py-0.5 bg-secondary rounded-full text-muted-foreground"
+                            >
+                              {city}
+                            </span>
+                          ))}
                         </div>
                         
-                        <div className="space-y-1 mb-3">
-                          <p className="text-xs text-muted-foreground flex items-center gap-1">
-                            <CheckCircle className="w-3 h-3 text-green-500" />
-                            Installation d'alarmes
-                          </p>
-                          <p className="text-xs text-muted-foreground flex items-center gap-1">
-                            <CheckCircle className="w-3 h-3 text-green-500" />
-                            Vidéosurveillance & Accès
-                          </p>
-                        </div>
-
-                        <div className="text-[10px] text-muted-foreground pt-2 border-t border-border/50">
-                          <span className="font-medium text-foreground">{region.departments.length}</span> départements couverts
+                        <div className="text-xs text-muted-foreground">
+                          <span className="font-medium text-foreground">{region.departments.length}</span> départements
                         </div>
                       </CardContent>
                     </Card>
@@ -645,21 +610,20 @@ const ZonesIntervention = () => {
           <div className="max-w-3xl mx-auto text-center">
             <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Vous êtes dans une de nos zones d’intervention ?
+              Votre Projet de Sécurité Commence Ici
             </h2>
             <p className="text-muted-foreground mb-8">
-              Appelez-nous maintenant ou demandez votre devis gratuit. Nos experts sont à votre écoute pour sécuriser vos biens partout en France.
+              Notre réseau s'étend chaque jour. Contactez-nous pour vérifier notre disponibilité 
+              dans votre secteur et obtenir un devis personnalisé pour l'Installation, le Dépannage ou la Location.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <a href="/#quote">
-                  Obtenez votre devis personnalisé - Demande de Devis
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+                Demander un Devis Personnalisé
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
