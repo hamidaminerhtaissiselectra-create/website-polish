@@ -12,7 +12,7 @@ const Header = () => {
     () => [
       { label: "Services", id: "services" },
       { label: "À Propos", id: "about" },
-      { label: "Devis", id: "quote" },
+      { label: "Zones d'intervention", id: "zones", isLink: true, href: "/zones-intervention" },
       { label: "Contact", id: "contact" },
     ],
     [],
@@ -43,13 +43,23 @@ const Header = () => {
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                {link.label}
-              </button>
+              link.isLink ? (
+                <Link
+                  key={link.id}
+                  to={link.href!}
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.id}
+                  onClick={() => handleNavClick(link.id)}
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
             ))}
           </nav>
 
@@ -71,13 +81,24 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link.id)}
-                  className="text-left text-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </button>
+                link.isLink ? (
+                  <Link
+                    key={link.id}
+                    to={link.href!}
+                    className="text-left text-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={link.id}
+                    onClick={() => handleNavClick(link.id)}
+                    className="text-left text-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                )
               ))}
               <Button
                 onClick={() => handleNavClick("quote")}
