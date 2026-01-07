@@ -1,7 +1,7 @@
-# 🔐 HD CONNECT - Documentation Complète
+# 🔐 HD CONNECT - Documentation Complète & Unifiée
 
-> **Version:** 5.1 - Documentation Unifiée  
-> **Dernière mise à jour:** 04 Janvier 2026  
+> **Version:** 6.0 - Documentation Fusionnée (Cahier des Charges + SEO)  
+> **Dernière mise à jour:** 07 Janvier 2026  
 > **Statut:** ✅ PRODUCTION-READY
 
 ---
@@ -17,10 +17,11 @@
 7. [Hooks Personnalisés](#-7-hooks-personnalisés)
 8. [Design System](#-8-design-system)
 9. [SEO & Optimisations](#-9-seo--optimisations)
-10. [Backend Supabase](#-10-backend-supabase)
-11. [Installation & Déploiement](#-11-installation--déploiement)
-12. [Configuration](#-12-configuration)
-13. [État du Projet](#-13-état-du-projet)
+10. [Stratégie SEO Complète](#-10-stratégie-seo-complète)
+11. [Backend Supabase](#-11-backend-supabase)
+12. [Installation & Déploiement](#-12-installation--déploiement)
+13. [Configuration](#-13-configuration)
+14. [État du Projet](#-14-état-du-projet)
 
 ---
 
@@ -44,6 +45,14 @@
 | SEO local | Référencement 60+ pages | ✅ Fait |
 | Animations premium | Micro-interactions globales | ✅ Fait |
 | Admin panel | Gestion des leads | ⚠️ Backend à configurer |
+
+### Objectifs SEO
+| Métrique | Objectif 6 mois | Objectif 12 mois |
+|----------|-----------------|------------------|
+| Trafic organique | +150% | +300% |
+| Positions Top 3 | 50 mots-clés | 150 mots-clés |
+| Leads/mois | 100 | 250 |
+| Domain Authority | 25 | 40 |
 
 ---
 
@@ -134,9 +143,9 @@ hdconnect/
 │   │   ├── Admin.tsx            # Panel admin
 │   │   ├── NotFound.tsx         # 404
 │   │   ├── LegalPage.tsx        # Mentions légales
-│   │   ├── ZonesIntervention.tsx
+│   │   ├── ZonesIntervention.tsx # Hub régions
 │   │   ├── services/            # 11 pages services
-│   │   ├── regions/             # Hub + pages régions
+│   │   ├── regions/             # Pages régions
 │   │   └── villes/              # Pages villes
 │   │
 │   ├── App.tsx                  # Router principal
@@ -149,6 +158,10 @@ hdconnect/
 │   │   ├── deno.json            # Config Deno
 │   │   └── send-quote-email/    # Edge function emails
 │   └── migrations/              # 4 migrations SQL
+│
+├── docs/                        # Anciens cahiers des charges (archivés)
+│   ├── CAHIER_DES_CHARGES.md
+│   └── CAHIER_DES_CHARGES_SEO.md
 │
 ├── .env                         # Variables environnement
 ├── tailwind.config.ts           # Config Tailwind
@@ -181,25 +194,25 @@ NIVEAU 1 - SERVICES (11 pages)
 ├── /services/depannage            → Depannage.tsx
 └── /services/location             → Location.tsx
 
-NIVEAU 2 - HUB GÉOGRAPHIQUE
-└── /regions                       → RegionsHub.tsx
+NIVEAU 2 - HUB GÉOGRAPHIQUE (PAGE PIVOT)
+└── /zones-intervention            → ZonesIntervention.tsx
 
 NIVEAU 3 - RÉGIONS (13 pages)
-├── /regions/ile-de-france
-├── /regions/auvergne-rhone-alpes
-├── /regions/provence-alpes-cote-d-azur
-├── /regions/nouvelle-aquitaine
-├── /regions/occitanie
-├── /regions/hauts-de-france
-├── /regions/grand-est
-├── /regions/pays-de-la-loire
-├── /regions/bretagne
-├── /regions/normandie
-├── /regions/bourgogne-franche-comte
-├── /regions/centre-val-de-loire
-└── /regions/corse
+├── /zones-intervention/ile-de-france
+├── /zones-intervention/auvergne-rhone-alpes
+├── /zones-intervention/provence-alpes-cote-d-azur
+├── /zones-intervention/nouvelle-aquitaine
+├── /zones-intervention/occitanie
+├── /zones-intervention/hauts-de-france
+├── /zones-intervention/grand-est
+├── /zones-intervention/pays-de-la-loire
+├── /zones-intervention/bretagne
+├── /zones-intervention/normandie
+├── /zones-intervention/bourgogne-franche-comte
+├── /zones-intervention/centre-val-de-loire
+└── /zones-intervention/corse
 
-NIVEAU 4 - VILLES (32 pages)
+NIVEAU 4 - VILLES (32 pages pivot)
 ├── /villes/paris
 ├── /villes/lyon
 ├── /villes/marseille
@@ -419,18 +432,6 @@ Dans toutes les pages services, les boutons CTA alternent entre "Demander un dev
 | CTA #2 (CTAIntermediate) | `quote` | "Demander un devis" | Gradient bleu + icône FileText |
 | CTA #3 (ServicePrestations ou section finale) | `intervention` | "Demander une intervention" | **Gradient orange/rouge + icône Wrench** |
 
-**Composants supportant `interventionMode`** :
-- `ServicePrestations.tsx` : `<ServicePrestations serviceName="..." interventionMode={true} />`
-- `CTAIntermediate.tsx` : `<CTAIntermediate interventionMode={true} />`
-
-**Distinction visuelle boutons intervention** :
-- Utilise le variant `intervention` du Button (`variant="intervention"`)
-- Style : `bg-gradient-to-r from-orange-500 via-red-500 to-orange-600` avec bordure orange
-- Icône : `<Wrench />` au lieu de `<FileText />`
-- Effet hover : shadow orange, scale up
-
-**Redirection** : Tous les boutons redirigent vers la page d'accueil, section "Obtenez votre devis personnalisé" avec sélection automatique du mode (Devis ou Intervention).
-
 ---
 
 ## 🎨 8. DESIGN SYSTEM
@@ -461,6 +462,16 @@ Dans toutes les pages services, les boutons CTA alternent entre "Demander un dev
   --radius: 0.5rem;
 }
 ```
+
+### Philosophie Design - Signature Visuelle
+
+Le site utilise une **signature visuelle unique** caractérisée par :
+- **Cercles lumineux flottants** avec `blur-3xl` et `animate-pulse-slow`
+- **Gradients subtils** sur les backgrounds
+- **Effets glassmorphism** avec `backdrop-blur-sm`
+- **Animations au scroll** via AnimatedSection
+- **Hover effects** avec `hover:scale-105` et transitions fluides
+- **Badges colorés** pour les catégories et services
 
 ### Couleurs d'Accent Services
 
@@ -555,7 +566,117 @@ Via `ServiceSchema.tsx` :
 
 ---
 
-## 💾 10. BACKEND SUPABASE
+## 🎯 10. STRATÉGIE SEO COMPLÈTE
+
+### Architecture en Silos
+
+```
+hdconnect.fr/
+├── / (Accueil)
+├── /services/
+│   ├── /videosurveillance
+│   ├── /alarme
+│   ├── /controle-acces
+│   ├── /reseau
+│   ├── /domotique
+│   ├── /antenne-satellite
+│   ├── /portails-parking
+│   ├── /installation
+│   ├── /depannage
+│   └── /location
+├── /zones-intervention/          ← Hub principal
+│   ├── /ile-de-france/
+│   │   └── (villes accessibles via /villes/)
+│   └── /[autres-regions]/
+├── /villes/                      ← Pages pivot SEO local
+│   ├── /paris
+│   ├── /creteil
+│   └── /[autres-villes]
+└── /[pages-legales]
+```
+
+### Règles de Maillage
+
+1. **Page Accueil** → Toutes les pages services + Régions principales
+2. **Page Service** → Autres services + Régions pertinentes
+3. **Page Région** → Tous les services + Villes de la région
+4. **Page Ville (Pivot)** → Services + Région parent + Villes proches
+
+### Template de Page Ville (Pivot SEO)
+
+```
+[H1] Installation, Dépannage, Location Sécurité à [Ville] ([Département])
+
+[SAB - Paragraphe d'accroche 100-150 mots]
+Présentation HD Connect à [Ville], contexte local, proposition de valeur.
+
+[Section Services]
+[H2] Nos Services de Sécurité à [Ville]
+- Vidéosurveillance [Ville]
+- Alarme [Ville]
+- Contrôle d'accès [Ville]
+- ...8 services au total
+
+[Section Expertise Locale]
+[H2] Pourquoi Choisir HD Connect à [Ville] ?
+
+[Section FAQ Locale]
+[H2] Questions Fréquentes - Sécurité [Ville]
+6 questions spécifiques à la localité
+
+[CTA Final]
+[H2] Demandez Votre Devis Gratuit à [Ville]
+```
+
+### Balises SEO Standards
+
+#### Title Tag
+```
+Format: [Action] [Service] à [Ville] | HD Connect
+Exemple: Installation Vidéosurveillance à Créteil | HD Connect
+Longueur: 50-60 caractères
+```
+
+#### Meta Description
+```
+Format: [Proposition valeur] à [Ville]. [Bénéfice]. [CTA].
+Exemple: Expert en installation de vidéosurveillance à Créteil. Devis gratuit, intervention rapide. Contactez HD Connect !
+Longueur: 150-160 caractères
+```
+
+### Optimisation IA (SGE/AIO)
+
+#### Principes E-E-A-T
+- **Expérience** : Témoignages, études de cas
+- **Expertise** : Certifications, années d'expérience
+- **Autorité** : Mentions presse, partenariats
+- **Fiabilité** : Avis clients, garanties
+
+#### Format "Réponse Directe"
+```
+Question claire → Réponse concise (2-3 phrases) → Développement
+```
+
+### SEO Local
+
+- Google Business Profile à optimiser
+- Cohérence NAP (Name-Address-Phone)
+- 1 page par ville principale (32 actuellement)
+- Contenu unique par page
+- Témoignages locaux si disponibles
+
+### Mots-clés Prioritaires
+
+| Mot-clé | Volume | Difficulté |
+|---------|--------|------------|
+| installation vidéosurveillance paris | 720 | Moyenne |
+| alarme maison ile de france | 590 | Moyenne |
+| contrôle accès entreprise | 480 | Facile |
+| dépannage alarme 94 | 210 | Facile |
+
+---
+
+## 💾 11. BACKEND SUPABASE
 
 ### Configuration
 
@@ -604,25 +725,6 @@ CREATE TABLE user_roles (
 );
 ```
 
-### Enums
-
-```sql
-CREATE TYPE request_type AS ENUM ('quote', 'intervention', 'contact');
-CREATE TYPE request_status AS ENUM ('new', 'contacted', 'quoted', 'converted', 'closed');
-CREATE TYPE app_role AS ENUM ('admin', 'user');
-```
-
-### Row Level Security (RLS)
-
-```sql
--- customer_requests
-"Anyone can insert requests" → INSERT pour anon, authenticated
-"Admins can view/update/delete" → SELECT/UPDATE/DELETE pour admins
-
--- user_roles
-"Admins can view/insert/update/delete" → Toutes opérations pour admins
-```
-
 ### Edge Functions
 
 #### send-quote-email
@@ -641,16 +743,9 @@ Body: {
 // Destinataire: kamal@hdconnect.fr
 ```
 
-### Migrations
-
-1. `20251115222056_*.sql` - Tables initiales + enums + RLS
-2. `20251115222117_*.sql` - Policies user_roles + fonction has_role
-3. `20251125004432_*.sql` - RLS customer_requests renforcé
-4. `20251212015519_*.sql` - Ajustements
-
 ---
 
-## 🚀 11. INSTALLATION & DÉPLOIEMENT
+## 🚀 12. INSTALLATION & DÉPLOIEMENT
 
 ### Installation Locale
 
@@ -702,7 +797,7 @@ npm run build
 
 ---
 
-## ⚙️ 12. CONFIGURATION
+## ⚙️ 13. CONFIGURATION
 
 ### Variables d'Environnement (.env)
 
@@ -740,9 +835,19 @@ VALUES ('uuid-du-user', 'admin');
 2. Configurer les enregistrements DNS (SPF, DKIM)
 3. Mettre à jour `SENDER_EMAIL` dans la fonction
 
+### Checklist Configuration
+
+- [ ] Variables d'environnement configurées
+- [ ] Supabase connecté
+- [ ] Premier utilisateur admin créé
+- [ ] Clé API Resend ajoutée
+- [ ] Domaine email vérifié
+- [ ] Google Analytics installé
+- [ ] Sitemap soumis à Google
+
 ---
 
-## 📋 13. ÉTAT DU PROJET
+## 📋 14. ÉTAT DU PROJET
 
 ### ✅ Terminé
 
@@ -751,6 +856,7 @@ VALUES ('uuid-du-user', 'admin');
 | 11 pages services avec animations | ✅ |
 | 13 pages régions | ✅ |
 | 32 pages villes | ✅ |
+| Hub zones d'intervention | ✅ |
 | Formulaire devis multi-étapes | ✅ |
 | Micro-interactions globales | ✅ |
 | SEO + meta tags dynamiques | ✅ |
@@ -782,16 +888,18 @@ VALUES ('uuid-du-user', 'admin');
 | Widget avis Google | Reviews clients | 🟢 Basse |
 | Chat live | Support instantané | 🟢 Basse |
 | Espace client | Portail post-installation | 🟢 Basse |
+| Lien "Régions" dans Header | Navigation vers hub | 🟡 Moyenne |
 
 ---
 
 ## 📞 Contact
 
 - **Email:** kamal@hdconnect.fr
-- **Téléphone:** 01 84 80 86 52
+- **Téléphone:** 01 84 80 86 52 / 06 27 13 53 04
 - **Site:** https://hdconnect.fr
 
 ---
 
 **Document créé le 03 Janvier 2026**  
-**Version 5.0 - Documentation Unifiée Complète**
+**Version 6.0 - Documentation Unifiée Complète (Fusionnée)**  
+**Dernière mise à jour:** 07 Janvier 2026
