@@ -13,6 +13,7 @@ const Header = () => {
       { label: "Services", id: "services" },
       { label: "À Propos", id: "about" },
       { label: "Zones d'intervention", id: "zones", isLink: true, href: "/zones-intervention" },
+      { label: "Blog", id: "blog", isLink: true, href: "/blog" },
       { label: "Contact", id: "contact" },
     ],
     [],

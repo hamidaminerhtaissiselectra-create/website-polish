@@ -13,6 +13,8 @@ import LegalPage from "./pages/LegalPage";
 import ZonesIntervention from "./pages/ZonesIntervention";
 import CityPage from "./pages/villes/CityPage";
 import RegionPage from "./pages/regions/RegionPage";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 import { Navigate } from "react-router-dom";
 import Videosurveillance from "./pages/services/Videosurveillance";
 import Alarme from "./pages/services/Alarme";
@@ -68,6 +70,10 @@ const App = () => (
           <Route path="/services/installation" element={<Installation />} />
           <Route path="/services/depannage" element={<Depannage />} />
           <Route path="/services/location" element={<Location />} />
+          
+          {/* Blog */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
           
           {/* Pages légales */}
           <Route path="/mentions-legales" element={<LegalPage />} />

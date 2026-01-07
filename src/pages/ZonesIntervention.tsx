@@ -348,21 +348,21 @@ const ZonesIntervention = () => {
           {/* Grille des régions avec photos */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {regionsData.map((region, index) => {
-              // Images réelles des régions (URLs vérifiées)
+              // Images emblématiques réelles des régions françaises
               const regionImages: Record<string, string> = {
-                "ile-de-france": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&h=200&fit=crop",
-                "auvergne-rhone-alpes": "https://images.unsplash.com/photo-1520549233664-03f65c1d1327?w=400&h=200&fit=crop",
-                "provence-alpes-cote-d-azur": "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=200&fit=crop",
-                "nouvelle-aquitaine": "https://images.unsplash.com/photo-1575986767340-5d17ae767ab0?w=400&h=200&fit=crop",
-                "occitanie": "https://images.unsplash.com/photo-1553551522-7f1a6b96a2b2?w=400&h=200&fit=crop",
-                "hauts-de-france": "https://images.unsplash.com/photo-1591289009723-aef0a1a8a211?w=400&h=200&fit=crop",
-                "grand-est": "https://images.unsplash.com/photo-1590087985585-4e6c4ba7f9db?w=400&h=200&fit=crop",
-                "pays-de-la-loire": "https://images.unsplash.com/photo-1588693222123-1f3a6c5b9c9a?w=400&h=200&fit=crop",
-                "bretagne": "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=400&h=200&fit=crop",
-                "normandie": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&h=200&fit=crop",
-                "bourgogne-franche-comte": "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=400&h=200&fit=crop",
-                "centre-val-de-loire": "https://images.unsplash.com/photo-1555776711-3f80eff6a3c8?w=400&h=200&fit=crop",
-                "corse": "https://images.unsplash.com/photo-1548544149-4835e62ee5b3?w=400&h=200&fit=crop"
+                "ile-de-france": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=200&fit=crop", // Tour Eiffel Paris
+                "auvergne-rhone-alpes": "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=400&h=200&fit=crop", // Mont Blanc Alpes
+                "provence-alpes-cote-d-azur": "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=400&h=200&fit=crop", // Lavande Provence
+                "nouvelle-aquitaine": "https://images.unsplash.com/photo-1565793298220-78cbb9726cba?w=400&h=200&fit=crop", // Dune du Pilat
+                "occitanie": "https://images.unsplash.com/photo-1551279076-6887f0e0ed84?w=400&h=200&fit=crop", // Cité de Carcassonne
+                "hauts-de-france": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=200&fit=crop", // Beffrois Lille
+                "grand-est": "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=200&fit=crop", // Cathédrale Strasbourg
+                "pays-de-la-loire": "https://images.unsplash.com/photo-1570102596-0e2c72ee0dbb?w=400&h=200&fit=crop", // Château de Nantes
+                "bretagne": "https://images.unsplash.com/photo-1599423300746-b62533397364?w=400&h=200&fit=crop", // Côte de granit rose
+                "normandie": "https://images.unsplash.com/photo-1597918374554-e9b58de73380?w=400&h=200&fit=crop", // Mont Saint-Michel
+                "bourgogne-franche-comte": "https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=400&h=200&fit=crop", // Vignobles Bourgogne
+                "centre-val-de-loire": "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=400&h=200&fit=crop", // Château de Chambord
+                "corse": "https://images.unsplash.com/photo-1568786866903-6e7d622c5cc5?w=400&h=200&fit=crop" // Calanques de Piana Corse
               };
               
               // Couleurs par région
