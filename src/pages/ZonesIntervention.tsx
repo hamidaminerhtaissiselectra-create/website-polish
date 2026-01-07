@@ -350,19 +350,19 @@ const ZonesIntervention = () => {
             {regionsData.map((region, index) => {
               // Images emblématiques réelles des régions françaises
               const regionImages: Record<string, string> = {
-                "ile-de-france": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=200&fit=crop", // Tour Eiffel Paris
-                "auvergne-rhone-alpes": "https://images.unsplash.com/photo-1548777123-e216912df7d8?w=400&h=200&fit=crop", // Mont Blanc Alpes
-                "provence-alpes-cote-d-azur": "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=400&h=200&fit=crop", // Lavande Provence
-                "nouvelle-aquitaine": "https://images.unsplash.com/photo-1565793298220-78cbb9726cba?w=400&h=200&fit=crop", // Dune du Pilat
-                "occitanie": "https://images.unsplash.com/photo-1551279076-6887f0e0ed84?w=400&h=200&fit=crop", // Cité de Carcassonne
-                "hauts-de-france": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=200&fit=crop", // Beffrois Lille
-                "grand-est": "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=200&fit=crop", // Cathédrale Strasbourg
-                "pays-de-la-loire": "https://images.unsplash.com/photo-1570102596-0e2c72ee0dbb?w=400&h=200&fit=crop", // Château de Nantes
-                "bretagne": "https://images.unsplash.com/photo-1599423300746-b62533397364?w=400&h=200&fit=crop", // Côte de granit rose
-                "normandie": "https://images.unsplash.com/photo-1597918374554-e9b58de73380?w=400&h=200&fit=crop", // Mont Saint-Michel
-                "bourgogne-franche-comte": "https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=400&h=200&fit=crop", // Vignobles Bourgogne
-                "centre-val-de-loire": "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=400&h=200&fit=crop", // Château de Chambord
-                "corse": "https://images.unsplash.com/photo-1568786866903-6e7d622c5cc5?w=400&h=200&fit=crop" // Calanques de Piana Corse
+                "ile-de-france": "/assets/regions/ile-de-france.jpg",
+                "auvergne-rhone-alpes": "/assets/regions/auvergne-rhone-alpes.jpg",
+                "provence-alpes-cote-d-azur": "/assets/regions/paca.jpg",
+                "nouvelle-aquitaine": "/assets/regions/nouvelle-aquitaine.jpg",
+                "occitanie": "/assets/regions/occitanie.jpg",
+                "hauts-de-france": "/assets/regions/hauts-de-france.jpg",
+                "grand-est": "/assets/regions/grand-est.jpg",
+                "pays-de-la-loire": "/assets/regions/pays-de-la-loire.jpg",
+                "bretagne": "/assets/regions/bretagne.jpg",
+                "normandie": "/assets/regions/normandie.jpg",
+                "bourgogne-franche-comte": "/assets/regions/bourgogne-franche-comte.jpg",
+                "centre-val-de-loire": "/assets/regions/centre-val-de-loire.jpg",
+                "corse": "/assets/regions/corse.jpg"
               };
               
               // Couleurs par région
