@@ -96,6 +96,7 @@
 hdconnect/
 ├── public/
 │   ├── favicon.ico
+│   ├── og-image.jpg             # Image sociale 1200x630
 │   ├── robots.txt
 │   └── sitemap.xml              # 60+ URLs SEO
 │
@@ -113,6 +114,7 @@ hdconnect/
 │   │   └── *.tsx                # 35+ composants métier
 │   │
 │   ├── data/
+│   │   ├── blogData.ts          # Articles blog (6+)
 │   │   ├── citiesData.ts        # 32 villes
 │   │   ├── regionsData.ts       # 13 régions
 │   │   ├── content.ts           # Contenu textuel
@@ -138,6 +140,8 @@ hdconnect/
 │   │   └── supabase.ts          # Config Supabase
 │   │
 │   ├── pages/
+│   │   ├── Blog.tsx             # Hub blog
+│   │   ├── BlogArticle.tsx      # Page article
 │   │   ├── Index.tsx            # Page d'accueil
 │   │   ├── Auth.tsx             # Authentification
 │   │   ├── Admin.tsx            # Panel admin
@@ -157,17 +161,14 @@ hdconnect/
 │   ├── functions/
 │   │   ├── deno.json            # Config Deno
 │   │   └── send-quote-email/    # Edge function emails
-│   └── migrations/              # 4 migrations SQL
-│
-├── docs/                        # Anciens cahiers des charges (archivés)
-│   ├── CAHIER_DES_CHARGES.md
-│   └── CAHIER_DES_CHARGES_SEO.md
+│   └── migrations/              # Migrations SQL
 │
 ├── .env                         # Variables environnement
 ├── tailwind.config.ts           # Config Tailwind
 ├── vite.config.ts               # Config Vite
 ├── tsconfig.json                # Config TypeScript
 ├── components.json              # Config Shadcn
+├── README.md                    # Documentation complète v7.0
 └── package.json                 # Dépendances
 ```
 
@@ -847,48 +848,174 @@ VALUES ('uuid-du-user', 'admin');
 
 ---
 
-## 📋 14. ÉTAT DU PROJET
+## 📝 14. BLOG
 
-### ✅ Terminé
+### Structure
+
+```
+BLOG (6+ articles)
+├── /blog                          → Blog.tsx (Hub)
+└── /blog/:slug                    → BlogArticle.tsx (Articles)
+```
+
+### Données (src/data/blogData.ts)
+
+```typescript
+interface BlogArticle {
+  id: string;
+  slug: string;              // URL-friendly
+  title: string;             // Titre article
+  excerpt: string;           // Résumé 160 caractères
+  content: string;           // Contenu complet Markdown-style
+  category: BlogCategory;    // Catégorie
+  author: string;            // Auteur
+  publishedAt: string;       // Date publication
+  readingTime: string;       // Temps lecture
+  image: string;             // Image header
+  tags: string[];            // Tags SEO
+  featured?: boolean;        // Mise en avant
+}
+
+type BlogCategory = 
+  | 'videosurveillance'
+  | 'alarme'
+  | 'controle-acces'
+  | 'domotique'
+  | 'reseau'
+  | 'maintenance'
+  | 'conseils'
+  | 'actualites';
+```
+
+### Articles Initiaux (6)
+
+| Titre | Catégorie | Slug |
+|-------|-----------|------|
+| Comment choisir son système de vidéosurveillance en 2026 | vidéosurveillance | `choisir-systeme-videosurveillance-2026` |
+| Les 5 erreurs à éviter lors de l'installation d'une alarme | alarme | `erreurs-installation-alarme` |
+| Contrôle d'accès biométrique : guide complet | contrôle-accès | `controle-acces-biometrique-guide` |
+| Maison connectée : par où commencer ? | domotique | `maison-connectee-par-ou-commencer` |
+| Maintenance préventive : économisez sur le long terme | maintenance | `maintenance-preventive-economies` |
+| Sécurité entreprise : les nouvelles réglementations 2026 | actualités | `securite-entreprise-reglementations-2026` |
+
+### Fonctionnalités Blog
 
 | Fonctionnalité | Statut |
 |----------------|--------|
-| 11 pages services avec animations | ✅ |
-| 13 pages régions | ✅ |
-| 32 pages villes | ✅ |
-| Hub zones d'intervention | ✅ |
-| Formulaire devis multi-étapes | ✅ |
-| Micro-interactions globales | ✅ |
-| SEO + meta tags dynamiques | ✅ |
-| Sitemap 60+ URLs | ✅ |
-| JSON-LD structuré | ✅ |
-| Design responsive | ✅ |
-| 80+ images HD | ✅ |
-| Maillage interne complet | ✅ |
-| useSmoothScroll cross-page | ✅ |
-| Switch devis/intervention animé | ✅ |
-| Couleurs d'accent par service | ✅ |
+| Page hub avec catégories | ✅ |
+| Filtrage par catégorie | ✅ |
+| Articles mis en avant | ✅ |
+| JSON-LD Article schema | ✅ |
+| Partage social (Twitter, Facebook, LinkedIn) | ✅ |
+| Articles similaires | ✅ |
+| Breadcrumbs | ✅ |
+| Images optimisées | ✅ |
 
-### ⚠️ À Configurer (Backend)
+---
 
-| Tâche | Description | Priorité |
-|-------|-------------|----------|
-| RESEND_API_KEY | Ajouter dans Supabase secrets | 🔴 Haute |
-| Premier admin | INSERT dans user_roles | 🔴 Haute |
-| Domaine email | Vérifier hdconnect.fr dans Resend | 🟡 Moyenne |
-| Google Analytics | Tracking trafic | 🟡 Moyenne |
-| Google Search Console | Soumettre sitemap | 🟡 Moyenne |
+## 📋 15. ÉTAT DU PROJET - CHECKLIST COMPLÈTE
 
-### 🟢 Améliorations Futures
+### 🏠 PAGES PRINCIPALES
+
+| Tâche | Statut | Notes |
+|-------|--------|-------|
+| Page d'accueil (`/`) | ✅ Fait | Hero, Services, Témoignages, Contact |
+| Header navigation | ✅ Fait | Logo, Services, Zones, Blog, bouton Devis |
+| Footer complet | ✅ Fait | Liens légaux, services, contact |
+| Page 404 | ✅ Fait | Design personnalisé |
+| Pages légales | ✅ Fait | Mentions légales, Politique confidentialité |
+| Page Admin | ✅ Fait | Authentification Supabase |
+| Image OG sociale | ✅ Fait | `public/og-image.jpg` (1200x630) |
+
+### 🔧 PAGES SERVICES (11 services)
+
+| Service | Route | Statut |
+|---------|-------|--------|
+| Vidéosurveillance | `/services/videosurveillance` | ✅ |
+| Alarme | `/services/alarme` | ✅ |
+| Contrôle d'accès | `/services/controle-acces` | ✅ |
+| Réseau | `/services/reseau` | ✅ |
+| Domotique | `/services/domotique` | ✅ |
+| Maintenance | `/services/maintenance` | ✅ |
+| Antenne/Satellite | `/services/antenne-satellite` | ✅ |
+| Portails/Parking | `/services/portails-parking` | ✅ |
+| Installation | `/services/installation` | ✅ |
+| Dépannage | `/services/depannage` | ✅ |
+| Location | `/services/location` | ✅ |
+
+### 🗺️ PAGES PIVOT SEO (Géographiques)
+
+| Page | Route | Statut |
+|------|-------|--------|
+| Hub Zones Intervention | `/zones-intervention` | ✅ Fait |
+| 13 pages Régions | `/zones-intervention/:slug` | ✅ Fait |
+| 32 pages Villes | `/villes/:slug` | ✅ Fait |
+| Images régions authentiques | Photos réelles de France | ✅ Fait |
+| Lien Header "Zones" | Navigation principale | ✅ Fait |
+
+### 📝 BLOG
+
+| Tâche | Statut |
+|-------|--------|
+| Page Blog Hub `/blog` | ✅ Fait |
+| Pages Articles `/blog/:slug` | ✅ Fait |
+| 6 articles SEO initiaux | ✅ Fait |
+| JSON-LD Article schema | ✅ Fait |
+| Partage social | ✅ Fait |
+| Lien Blog dans Header | ✅ Fait |
+
+### 🔒 FORMULAIRES & BACKEND
+
+| Tâche | Statut | Notes |
+|-------|--------|-------|
+| Supabase connecté | ✅ Fait | Projet `emvmyrdxmpsoaykabszb` |
+| Table `customer_requests` | ✅ Fait | Stockage leads |
+| Edge Function emails | ✅ Existe | `send-quote-email/` |
+| QuoteFunnel (Formspree) | ✅ Fonctionne | Backup fonctionnel |
+| **RESEND_API_KEY** | ⏳ À configurer | Clé à fournir par le client |
+
+### 📊 SEO & TECHNIQUE
+
+| Tâche | Statut |
+|-------|--------|
+| Meta tags OG | ✅ Fait |
+| Twitter Cards | ✅ Fait |
+| robots.txt | ✅ Fait |
+| sitemap.xml (60+ URLs) | ✅ Fait |
+| Canonical URLs | ✅ Fait |
+| Breadcrumbs | ✅ Fait |
+| JSON-LD LocalBusiness | ✅ Fait |
+| Image OG sociale | ✅ Fait |
+| Google Analytics 4 | ⏳ En attente ID GA4 |
+
+### 📁 DOCUMENTATION
+
+| Tâche | Statut |
+|-------|--------|
+| README.md unifié v7.0 | ✅ Fait |
+| Anciens cahiers des charges | ✅ Supprimés |
+| Documentation Blog | ✅ Ajoutée |
+
+---
+
+### ⏳ TÂCHES EN ATTENTE (À fournir par le client)
+
+| Tâche | Information requise |
+|-------|---------------------|
+| RESEND_API_KEY | Clé API Resend pour emails |
+| Google Analytics 4 | ID de suivi (G-XXXXXXXXXX) |
+| Premier admin | Email admin pour INSERT dans user_roles |
+| Domaine Resend | Vérification hdconnect.fr dans Resend |
+
+### 🟢 AMÉLIORATIONS FUTURES (Optionnelles)
 
 | Tâche | Description | Priorité |
 |-------|-------------|----------|
 | Pages service+ville | `/villes/paris/videosurveillance` | 🟢 Basse |
-| Blog métier | Articles conseils | 🟢 Basse |
+| Plus d'articles blog | Contenu SEO additionnel | 🟢 Basse |
 | Widget avis Google | Reviews clients | 🟢 Basse |
 | Chat live | Support instantané | 🟢 Basse |
 | Espace client | Portail post-installation | 🟢 Basse |
-| Lien "Régions" dans Header | Navigation vers hub | 🟡 Moyenne |
 
 ---
 
@@ -901,5 +1028,5 @@ VALUES ('uuid-du-user', 'admin');
 ---
 
 **Document créé le 03 Janvier 2026**  
-**Version 6.0 - Documentation Unifiée Complète (Fusionnée)**  
-**Dernière mise à jour:** 07 Janvier 2026
+**Version 7.0 - Documentation Complète avec Blog**  
+**Dernière mise à jour:** 08 Janvier 2026
