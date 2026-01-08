@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
 import { MissionBlock, SolutionsBlock, ExpertiseBlock, CoverageBlock, ClientTypesBlock } from "@/components/HomeSEOBlocks";
 import { useSEO } from "@/hooks/useSEO";
+import { getHomePageJsonLd } from "@/data/structuredData";
 
 const Index = () => {
   // SEO optimisé pour la page d'accueil
@@ -20,8 +21,19 @@ const Index = () => {
     canonicalUrl: "https://hdconnect.fr/",
   });
 
+  // Données structurées JSON-LD pour la page d'accueil
+  const jsonLdSchemas = getHomePageJsonLd();
+
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD Structured Data */}
+      {jsonLdSchemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <Header />
       <main>
         <Hero />
