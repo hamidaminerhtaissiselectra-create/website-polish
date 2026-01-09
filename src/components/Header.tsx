@@ -37,8 +37,8 @@ const Header = () => {
               <span className="text-primary-foreground font-bold text-xl">HD</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">HD Connect</h1>
-              <p className="text-xs text-muted-foreground">Sécurité & Technologie</p>
+              <span className="text-xl font-bold text-foreground block">HD Connect</span>
+              <span className="text-xs text-muted-foreground block">Sécurité & Technologie</span>
             </div>
           </Link>
 
