@@ -48,7 +48,7 @@ const Maintenance = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Maintenance", url: "/services/maintenance" },
   ];
 

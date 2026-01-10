@@ -49,7 +49,7 @@ const Reseau = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Réseau", url: "/services/reseau" },
   ];
 

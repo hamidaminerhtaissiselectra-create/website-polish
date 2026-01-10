@@ -15,6 +15,7 @@ import CityPage from "./pages/villes/CityPage";
 import RegionPage from "./pages/regions/RegionPage";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
+import ServicesHub from "./pages/ServicesHub";
 import { Navigate } from "react-router-dom";
 import Videosurveillance from "./pages/services/Videosurveillance";
 import Alarme from "./pages/services/Alarme";
@@ -58,7 +59,10 @@ const App = () => (
           {/* Pages villes - Niveau 4 */}
           <Route path="/villes/:citySlug" element={<CityPage />} />
           
-          {/* Pages services - Niveau 1 */}
+          {/* Page Hub Services - Niveau 1 (Page Pivot) */}
+          <Route path="/services" element={<ServicesHub />} />
+          
+          {/* Pages services individuelles - Niveau 2 */}
           <Route path="/services/videosurveillance" element={<Videosurveillance />} />
           <Route path="/services/alarme" element={<Alarme />} />
           <Route path="/services/controle-acces" element={<ControleAcces />} />

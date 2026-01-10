@@ -43,7 +43,7 @@ const Installation = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Installation", url: "/services/installation" },
   ];
 

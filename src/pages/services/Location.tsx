@@ -42,7 +42,7 @@ const Location = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Location", url: "/services/location" },
   ];
 

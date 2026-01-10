@@ -49,7 +49,7 @@ const Domotique = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Domotique", url: "/services/domotique" },
   ];
 
