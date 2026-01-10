@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
@@ -115,6 +115,26 @@ const ServiceHero = ({
       <div className="absolute inset-0 pattern-grid opacity-10 pointer-events-none"></div>
 
       <div className="container mx-auto px-4 relative z-10 w-full">
+        {/* Back to services link */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-4"
+        >
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="gap-2 text-muted-foreground hover:text-foreground bg-background/50 backdrop-blur-sm"
+            asChild
+          >
+            <Link to="/services">
+              <ArrowLeft className="w-4 h-4" />
+              Tous nos services
+            </Link>
+          </Button>
+        </motion.div>
+
         {/* Content container with glass effect */}
         <motion.div 
           className="max-w-3xl bg-gradient-to-br from-background/90 via-background/80 to-background/70 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-border/40"
