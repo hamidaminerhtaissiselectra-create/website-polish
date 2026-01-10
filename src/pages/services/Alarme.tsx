@@ -49,7 +49,7 @@ const Alarme = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Alarme", url: "/services/alarme" },
   ];
 

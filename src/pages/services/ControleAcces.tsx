@@ -51,7 +51,7 @@ const ControleAcces = () => {
   });
   const breadcrumbs = [{
     name: "Services",
-    url: "/#services"
+    url: "/services"
   }, {
     name: "Contrôle d'Accès",
     url: "/services/controle-acces"

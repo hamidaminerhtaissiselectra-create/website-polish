@@ -17,7 +17,17 @@
   </url>
   
   <!-- ========================================== -->
-  <!-- NIVEAU 1 - PAGES SERVICES (11 pages)      -->
+  <!-- NIVEAU 1 - HUB SERVICES (Page Pivot)       -->
+  <!-- ========================================== -->
+  <url>
+    <loc>https://hdconnect.fr/services</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- ========================================== -->
+  <!-- NIVEAU 2 - PAGES SERVICES (11 pages)      -->
   <!-- ========================================== -->
   <!-- Services principaux (8) -->
   <url>

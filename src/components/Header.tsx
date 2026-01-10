@@ -10,7 +10,7 @@ const Header = () => {
 
   const navLinks = useMemo(
     () => [
-      { label: "Services", id: "services" },
+      { label: "Services", id: "services", isLink: true, href: "/services" },
       { label: "À Propos", id: "about" },
       { label: "Zones d'intervention", id: "zones", isLink: true, href: "/zones-intervention" },
       { label: "Blog", id: "blog", isLink: true, href: "/blog" },

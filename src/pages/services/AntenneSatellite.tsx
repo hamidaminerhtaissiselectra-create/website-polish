@@ -50,7 +50,7 @@ const AntenneSatellite = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Antenne & Satellite", url: "/services/antenne-satellite" },
   ];
 

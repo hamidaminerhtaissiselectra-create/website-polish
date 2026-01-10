@@ -50,7 +50,7 @@ const PortailsParking = () => {
   });
 
   const breadcrumbs = [
-    { name: "Services", url: "/#services" },
+    { name: "Services", url: "/services" },
     { name: "Portails & Parking", url: "/services/portails-parking" },
   ];
 
