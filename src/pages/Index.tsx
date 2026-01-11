@@ -13,6 +13,7 @@ import { MissionBlock, SolutionsBlock, ExpertiseBlock, CoverageBlock, ClientType
 import { useSEO } from "@/hooks/useSEO";
 import { getHomePageJsonLd } from "@/data/structuredData";
 import { homeFAQItems, getHomeFAQJsonLd } from "@/data/homeFAQ";
+import HomeCTALinks from "@/components/HomeCTALinks";
 
 const Index = () => {
   // SEO optimisé pour la page d'accueil
@@ -47,6 +48,8 @@ const Index = () => {
         <Hero />
         <MissionBlock />
         <Services />
+        {/* CTAs vers Hub Services, Blog et Zones d'intervention */}
+        <HomeCTALinks />
         <SolutionsBlock />
         <ClientTypesBlock />
         <Testimonials />

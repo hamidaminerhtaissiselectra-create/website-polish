@@ -6,6 +6,7 @@ import { ArrowLeft, FileText, Shield, MapPin, Camera, ShieldAlert, Fingerprint, 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useSEO } from "@/hooks/useSEO";
+import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 
 const LegalPage = () => {
   const location = useLocation();
@@ -52,6 +53,10 @@ const LegalPage = () => {
     "Dijon", "Angers", "Nîmes", "Villeurbanne", "Clermont-Ferrand", "Le Mans", "Aix-en-Provence", "Brest"
   ];
 
+  const breadcrumbItems = [
+    { name: isMentions ? "Mentions Légales" : "Politique de Confidentialité", url: location.pathname },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -60,10 +65,13 @@ const LegalPage = () => {
         <section className="py-16 bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
           <div className="absolute inset-0 pattern-dots opacity-30" />
           <div className="container mx-auto px-4 relative z-10">
+            {/* Breadcrumbs */}
+            <Breadcrumbs items={breadcrumbItems} />
+            
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-3xl mx-auto text-center"
+              className="max-w-3xl mx-auto text-center mt-6"
             >
               <div className="badge-primary mb-6 justify-center">
                 <Icon className="w-5 h-5" />
