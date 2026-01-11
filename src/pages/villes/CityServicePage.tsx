@@ -474,6 +474,16 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
                 Demander un devis gratuit
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
+              <Button 
+                size="lg" 
+                className="text-lg px-8 bg-primary/20 backdrop-blur-sm border-2 border-primary/50 hover:bg-primary/30 text-primary transition-all"
+                asChild
+              >
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
+                  <Phone className="mr-2 w-5 h-5" />
+                  {phoneNumber}
+                </a>
+              </Button>
             </div>
           </div>
         </div>

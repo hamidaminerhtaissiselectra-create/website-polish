@@ -198,7 +198,7 @@ const ServiceLinks = ({ currentService }: ServiceLinksProps) => {
                   whileHover={{ scale: 1.05, y: -2 }}
                 >
                   <Link
-                    to={`/regions/${region.slug}`}
+                    to={`/zones-intervention/${region.slug}`}
                     className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full ${colorSet.bg} border ${colorSet.border} ${colorSet.text} font-medium text-sm transition-all hover:shadow-md`}
                   >
                     <motion.div 
@@ -221,7 +221,7 @@ const ServiceLinks = ({ currentService }: ServiceLinksProps) => {
               whileHover={{ scale: 1.05 }}
             >
               <Link
-                to="/regions"
+                to="/zones-intervention"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm hover:bg-primary/20 transition-all hover:shadow-md"
               >
                 Toutes les régions
@@ -240,7 +240,7 @@ const ServiceLinks = ({ currentService }: ServiceLinksProps) => {
           transition={{ delay: 0.2 }}
         >
           <Link
-            to="/regions"
+            to="/zones-intervention"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Building2 className="w-5 h-5" />
