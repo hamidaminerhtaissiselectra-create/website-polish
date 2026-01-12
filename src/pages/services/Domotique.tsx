@@ -26,6 +26,8 @@ import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-tablet-wall.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-smart.jpg";
@@ -441,6 +443,15 @@ const Domotique = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="domotique" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["domotique", "conseils"]} 
+          title="Guides Domotique et Maison Connectée"
+        />
 
         <ServiceLinks currentService="domotique" />
 

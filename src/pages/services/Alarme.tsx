@@ -27,6 +27,7 @@ import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroAlarmeImage from "@/assets/hero-alarme.jpg";
 import alarmPanelImage from "@/assets/alarme-panel-modern.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
@@ -429,6 +430,12 @@ const Alarme = () => {
 
         {/* SECTION GARANTIES */}
         <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["alarme", "conseils"]} 
+          title="Guides Alarme et Protection"
+        />
 
         <ServiceLinks currentService="alarme" />
 

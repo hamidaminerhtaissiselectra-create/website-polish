@@ -21,6 +21,8 @@ import LightStatsSection from "@/components/LightStatsSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroInstallationImage from "@/assets/hero-installation-unique.jpg";
 import technicianWorkImage from "@/assets/installation-outdoor-work.jpg";
 import installCameraUniqueImage from "@/assets/installation-alarm-config.jpg";
@@ -388,6 +390,15 @@ const Installation = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="installation" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["videosurveillance", "alarme", "conseils"]} 
+          title="Guides et Conseils Installation"
+        />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="installation" />

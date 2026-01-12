@@ -26,6 +26,8 @@ import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroReseauImage from "@/assets/hero-reseau.jpg";
 import networkServerImage from "@/assets/reseau-baie-cables.jpg";
 import reseauSwitchImage from "@/assets/reseau-switch.jpg";
@@ -346,6 +348,15 @@ const Reseau = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="reseau" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["conseils"]} 
+          title="Guides Infrastructure Réseau"
+        />
 
         <ServiceLinks currentService="reseau" />
 
