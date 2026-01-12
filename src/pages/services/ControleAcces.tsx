@@ -26,6 +26,8 @@ import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroAccesImage from "@/assets/hero-controle-acces.jpg";
 import accessBiometricImage from "@/assets/acces-biometrie-porte.jpg";
 import accessBadgeReaderImage from "@/assets/acces-badge-office.jpg";
@@ -436,6 +438,15 @@ const ControleAcces = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="acces" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["controle-acces", "conseils"]} 
+          title="Guides Contrôle d'Accès"
+        />
 
         <ServiceLinks currentService="controle-acces" />
 

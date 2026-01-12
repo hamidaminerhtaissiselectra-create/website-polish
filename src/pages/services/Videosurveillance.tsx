@@ -27,6 +27,7 @@ import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/vs-install-facade.jpg";
 import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
@@ -354,6 +355,12 @@ const Videosurveillance = () => {
 
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="propriété" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["videosurveillance", "reglementation", "conseils"]} 
+          title="Guides Vidéosurveillance et Réglementation"
+        />
 
         <ServiceLinks currentService="videosurveillance" />
 

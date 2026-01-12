@@ -22,6 +22,8 @@ import LightStatsSection from "@/components/LightStatsSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import heroDepannageImage from "@/assets/hero-depannage-unique.jpg";
 import depannageTechUniqueImage from "@/assets/depannage-diagnostic-work.jpg";
@@ -379,6 +381,15 @@ const Depannage = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="depannage" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["videosurveillance", "alarme", "conseils"]} 
+          title="Guides Dépannage et Maintenance"
+        />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="depannage" />

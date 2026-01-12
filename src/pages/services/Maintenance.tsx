@@ -26,6 +26,8 @@ import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-check-panel.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
@@ -345,6 +347,15 @@ const Maintenance = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="maintenance" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["conseils"]} 
+          title="Guides Maintenance et Dépannage"
+        />
 
         <ServiceLinks currentService="maintenance" />
 

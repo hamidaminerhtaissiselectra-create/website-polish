@@ -21,6 +21,8 @@ import ServiceLinks from "@/components/ServiceLinks";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import TechnologiesGaranties from "@/components/TechnologiesGaranties";
+import GarantiesSection from "@/components/GarantiesSection";
+import BlogCTASection from "@/components/BlogCTASection";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import heroLocationImage from "@/assets/hero-location-unique.jpg";
 import locationEquipementUniqueImage from "@/assets/location-equipement-table.jpg";
@@ -536,6 +538,15 @@ const Location = () => {
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="location" />
+
+        {/* SECTION GARANTIES */}
+        <GarantiesSection variant="compact" />
+
+        {/* CTA BLOG CONTEXTUEL */}
+        <BlogCTASection 
+          categories={["videosurveillance", "conseils"]} 
+          title="Guides Location et Sécurité Temporaire"
+        />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="location" />
